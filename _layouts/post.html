@@ -50,9 +50,6 @@ layout: default
 %}{%      include fn_sortednav.html posclass='btnbottom'
 %}{%    endif
 %}{%  endif
-%}{%  unless page.author == 'none'
-%}{%    include author-block.html %}
-  {%  endunless
 %}{%  if jekyll.environment == "production"
 %}{%    unless page.options contains nocomment or page.categories contains 'works'
 %}{%      include disqus.html %}

@@ -6,6 +6,9 @@
       <li class="special">
         <a href="#menu" class="menuToggle"><span>Menu</span></a>
         <div id="menu">
+            <div class="inner" align="center">
+              <h1><img style="border-radius: 50%; width: 152px; height: 152px; margin: 1em" src="{{ site.baseurl }}/images/me.jpg"/><br>{{ site.title }}</h1>
+            </div>
           <ul>
             <li><a href="{{ "/index.html#greeting" | prepend: site.baseurl }}">Home</a></li>{%
             assign sorted_pages = site.pages | sort: 'key','last' %}{%
@@ -16,8 +19,25 @@
                 endunless %}{%
               endif %}{%
             endfor %}
-            <li><a href="{{ "/feed.xml" | prepend: site.baseurl }}"
-                   class="icon fa-feed"> RSS Feed</a></li>
+            <li><div>
+            {%
+              for socloc in site.social limit:3 %}{%
+                if socloc[1] %}
+                
+                {% if socloc[0] == 'email' %}
+                <a target="_blank" href="{%
+                    if socloc[1] contains '@' %}mailto:{{ socloc[1] }}{%
+                    else %}{{ socloc[1] }}{%
+                    endif %}" class="icon fa-envelope major style1" style="border: 0"
+                       ><span class="label">E-mail</span></a>
+                       {%
+                  else %}
+                <a target="_blank" href="{{ socloc[1] }}" class="icon fa-{{ socloc[0] }} major style1" style="border: 0"
+                       ><span class="label">{{ socloc[0] }}</a>{%
+                  endif %}{%
+                endif %}
+                {%endfor %}
+                <div></li>
           </ul>
         </div>
       </li>
