@@ -3,6 +3,7 @@ priority: 0.6
 title: Localhost
 excerpt: A social networking website to experience local lifestyle while traveling
 categories: works
+options: nolanding
 background-image: works-sample.png
 tags:
   - React
